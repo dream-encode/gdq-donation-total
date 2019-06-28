@@ -1,0 +1,62 @@
+@font-face {
+    font-family: Score;
+    src: url('./fonts/PressStart2P.ttf');
+}
+
+* {
+    font-family: 'Score';
+}
+
+html, body {
+    height: 100%;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #222;
+
+    .container {
+        position: relative;
+        top: 20%;
+        right: 20%;
+        bottom: 20%;
+        left: 20%;
+        width: 60%;
+        height: 60%;
+    }
+
+    h2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate( -50%, -50% );
+        color: #70BCD4;
+    }
+
+    .donation {
+        background-color: #70BCD4;
+        color: #B33771;
+        border-radius: 3px;
+        padding: 10px 7px;
+        position: absolute;
+        transform: translate( -50%, -50% );
+
+        &.added {
+            animation: donation 5s forwards;
+        }
+    }
+}
+
+@keyframes donation {
+    from {
+        opacity: 1;
+        transform: translateY( 0 );
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY( -30px );
+    }
+}
