@@ -14,7 +14,6 @@ html, body {
 .main {
     width: 100%;
     height: 100%;
-    position: relative;
     background-color: #222;
 
     .container {
@@ -27,24 +26,25 @@ html, body {
         height: 60%;
     }
 
-    h2 {
+    h1 {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate( -50%, -50% );
         color: #70BCD4;
+        font-size: 3rem;
     }
 
     .donation {
-        background-color: #70BCD4;
-        color: #B33771;
+        background-color: #EEE;
+        color: #111;
         border-radius: 3px;
         padding: 10px 7px;
         position: absolute;
         transform: translate( -50%, -50% );
 
         &.added {
-            animation: donation 5s forwards;
+            animation: donation 4s forwards;
         }
     }
 }

@@ -194,24 +194,38 @@ module.hot.accept(reloadCSS);
 
 require("./main.scss");
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 (function () {
   'use strict';
 
-  var body = document.body;
   var main = document.querySelector('.main');
   var container = main.querySelector('.container');
-  var total = container.querySelector('h2');
-  var windowWidth = body.offsetWidth;
-  var windowHeight = body.offsetHeight;
+  var total = container.querySelector('.total');
+  var containerPosition = container.getBoundingClientRect();
+  var minX = containerPosition.left;
+  var maxX = containerPosition.right;
+  var minY = containerPosition.top + 100;
+  var maxY = containerPosition.bottom - 100;
   var currentTotal = Number(total.dataset.total);
-  console.log('currentTotal', currentTotal);
+  console.log('containerPosition', containerPosition);
+  console.log('minX', minX);
+  console.log('maxX', maxX);
+  console.log('minY', minY);
+  console.log('maxY', maxY);
 
   function addDonation(value) {
     var amountToAdd = Number(value);
     var donation = document.createElement('div');
     var amount = document.createTextNode("$".concat(amountToAdd));
-    var top = Math.floor(Math.random() * windowHeight);
-    var left = Math.floor(Math.random() * windowWidth);
+    var top = Math.floor(Math.random() * (maxY - minY) + minY / 2);
+    var left = Math.floor(Math.random() * (maxX - minX));
     donation.classList.add('donation');
     donation.style.top = "".concat(top, "px");
     donation.style.left = "".concat(left, "px");
@@ -228,15 +242,28 @@ require("./main.scss");
 
       currentTotal++;
     }, Math.floor(1 / amountToAdd * 1000));
-    setTimeout(function () {
-      donation.parentNode.removeChild(donation);
+    setTimeout(function () {// donation.parentNode.removeChild( donation );
     }, 5000);
   }
+
+  var possibleDonations = [1000, 500].concat(_toConsumableArray(Array(3).fill().map(function () {
+    return 250;
+  })), _toConsumableArray(Array(8).fill().map(function () {
+    return 100;
+  })), _toConsumableArray(Array(15).fill().map(function () {
+    return 75;
+  })), _toConsumableArray(Array(30).fill().map(function () {
+    return 50;
+  })), _toConsumableArray(Array(90).fill().map(function () {
+    return 25;
+  })), _toConsumableArray(Array(200).fill().map(function () {
+    return 10;
+  })));
 
   (function donationLoop() {
     var interval = Math.round(Math.random() * 5000) + 2000;
     setTimeout(function () {
-      addDonation(Math.floor(Math.random() * 100) + 1);
+      addDonation(possibleDonations[Math.floor(Math.random() * possibleDonations.length)]);
       donationLoop();
     }, interval);
   })();
@@ -269,7 +296,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52019" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58589" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
