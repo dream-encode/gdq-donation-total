@@ -4,7 +4,8 @@ A quick recreation of the Summer Games Done Quick 2019 donation tracker and anim
 
 ## Local Development
 
-Clone the repo to a local folder, and `cd` to it.  Them run:
+Clone the repo to a local folder.
+In the root of the project run:
 ```
 yarn install
 parcel watch index.html
