@@ -33,9 +33,9 @@ html, body {
         font-family: 'PressStart2P';
         margin: 0;
         padding: 0;
-        color: #47C9F3;
+        color: #53D0F0;
         font-size: 5rem;
-        background-image: linear-gradient( 180deg,#47C9F3 0%, #47869D );
+        background-image: linear-gradient( 180deg,#53D0F0 0%, #47869D );
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -62,8 +62,16 @@ html, body {
         transform: translate( -50%, -50% ) rotateY( 90deg );
         backface-visibility: hidden;
 
-        &.major {
-            background-color: #47C9F3;
+        &.high {
+            background-color: #53D0F0;
+        }
+
+        &.large {
+            background-color: #FFFBB3;
+        }
+
+        &.ultra {
+            background-color: #FF3D9B;
         }
 
         &.added {

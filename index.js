@@ -69,7 +69,15 @@ class GDQDonations {
         donation.classList.add( 'added' );
 
         if ( amountToAdd >= 20 ) {
-            donation.classList.add( 'major' );
+            donation.classList.add( 'high' );
+        }
+
+        if ( amountToAdd >= 100 ) {
+            donation.classList.add( 'large' );
+        }
+
+        if ( amountToAdd >= 1000 ) {
+            donation.classList.add( 'ultra' );
         }
 
         let newTotal = this.currentTotal + amountToAdd;
